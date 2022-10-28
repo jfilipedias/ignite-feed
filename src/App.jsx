@@ -4,7 +4,7 @@ import { Post } from './components/Post'
 
 import styles from './App.module.css'
 
-import './styles.css'
+import './global.css'
 
 export function App() {
   return (
