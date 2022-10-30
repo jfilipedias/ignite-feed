@@ -6,6 +6,45 @@ import styles from './App.module.css'
 
 import './global.css'
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/jfilipedias.png',
+      name: 'Filipe Dias',
+      role: 'Desenvolvedor Front-end',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portfólio. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'filipe.design/doctorcare' },
+    ],
+    publishedAt: new Date('2022-08-30 17:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/github.png',
+      name: 'John Doe',
+      role: 'Desenvolvedor Back-end',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portfólio. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'filipe.design/doctorcare' },
+    ],
+    publishedAt: new Date('2022-08-31 18:00:00'),
+  },
+]
+
 export function App() {
   return (
     <>
@@ -14,14 +53,16 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Filipe Dias"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          />
-          <Post
-            author="Filipe Dias"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          />
+          {posts.map((post) => {
+            return (
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </>
