@@ -23,7 +23,7 @@ const posts = [
       },
       { type: 'link', content: 'filipe.design/doctorcare' },
     ],
-    publishedAt: new Date('2022-08-30 17:00:00'),
+    publishedAt: new Date('2022-10-30 17:00:00'),
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const posts = [
       },
       { type: 'link', content: 'filipe.design/doctorcare' },
     ],
-    publishedAt: new Date('2022-08-31 18:00:00'),
+    publishedAt: new Date('2022-10-31 14:00:00'),
   },
 ]
 
