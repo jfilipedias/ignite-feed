@@ -6,7 +6,24 @@ import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import styles from './Post.module.css'
 
-export function Post({ author, publishedAt, content }) {
+interface Author {
+  avatarUrl: string
+  name: string
+  role: string
+}
+
+interface Content {
+  type: string
+  content: string
+}
+
+interface PostProps {
+  author: Author
+  publishedAt: Date
+  content: Content[]
+}
+
+export function Post({ author, publishedAt, content }: PostProps) {
   const [comments, setComments] = useState(['Post muito bacana!'])
   const [newCommentText, setNewCommentText] = useState('')
 
@@ -39,7 +56,7 @@ export function Post({ author, publishedAt, content }) {
     event.target.setCustomValidity('Este campo é obrigatório!')
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentsWithoutDeletedOne = comments.filter(
       (comment) => comment !== commentToDelete
     )

@@ -4,7 +4,12 @@ import { ThumbsUp, Trash } from 'phosphor-react'
 import { Avatar } from './Avatar'
 import styles from './Comment.module.css'
 
-export function Comment({ content, onDeleteComment }) {
+interface CommentProps {
+  content: string
+  onDeleteComment: (commentToDelete: string) => void
+}
+
+export function Comment({ content, onDeleteComment }: CommentProps) {
   const [likesCount, setLikesCount] = useState(0)
 
   function handleLikesCount() {
@@ -33,7 +38,7 @@ export function Comment({ content, onDeleteComment }) {
             </div>
 
             <button title="Deletar comentário" onClick={handleDeleteComment}>
-              <Trash siz={24} />
+              <Trash size={24} />
             </button>
           </header>
 
